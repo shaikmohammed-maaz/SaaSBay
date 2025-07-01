@@ -31,30 +31,30 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <img
               src={Logo}
               alt="SaaSBay Logo"
-              className="h-14 w-auto"
+              className="h-12 w-auto sm:h-14"
             />
-            <span className="text-primary font-bold text-3xl tracking-tight">
+            <span className="text-primary font-bold text-2xl sm:text-3xl tracking-tight">
               SaaSBay
             </span>
           </div>
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-4 sm:space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-secondary hover:text-primary font-medium transition-colors text-lg"
+                className="text-secondary hover:text-primary font-medium transition-colors text-base sm:text-lg"
               >
                 {link.name}
               </a>
             ))}
           </div>
           {/* Mobile Hamburger */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center ml-2">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-secondary hover:text-primary focus:outline-none"

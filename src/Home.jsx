@@ -75,12 +75,13 @@ const cardBanners = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center w-full">
+		<div className="flex flex-col items-center w-full overflow-x-hidden">
 			{/* Banner Area */}
-			<div className="w-screen min-h-[420px] md:min-h-[520px] flex items-center justify-center bg-gradient-to-r from-[#e3f1fa] via-[#f5fafd] to-[#d0e7f7]">
-				<div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 md:px-8">
+			<div className="w-screen min-h-[340px] md:min-h-[500px] flex items-center justify-center bg-gradient-to-r from-[#e3f1fa] via-[#f5fafd] to-[#d0e7f7] overflow-x-hidden">
+				<div className="flex flex-col-reverse md:flex-row items-center justify-between w-full md:max-w-5xl mx-auto
+                  px-2 sm:px-4 md:px-0 gap-6 md:gap-0 py-8 md:py-0">
 					{/* Left: Text and Button */}
-					<div className="flex-1 flex flex-col items-center md:items-start justify-center py-10 md:py-16">
+					<div className="w-full md:flex-1 flex flex-col items-center md:items-start justify-center">
 						<h1 className="text-2xl md:text-5xl font-bold text-primary mb-3 text-center md:text-left max-w-xl">
 							Get All SaaS Application At One Stop
 						</h1>
@@ -88,36 +89,34 @@ export default function Home() {
 							Discover, compare, and access the best SaaS tools for your business
 							needs—all in one place.
 						</p>
-						<div className="w-full flex justify-center md:justify-start">
-							<button className="bg-primary text-accent px-6 py-2 rounded-lg font-semibold shadow hover:bg-primary-light transition text-base">
+						<div className="learn-more-btn w-full flex justify-center md:justify-start">
+							<button className="bg-primary text-accent rounded-lg font-semibold shadow hover:bg-primary-light transition text-base">
 								Learn More
 							</button>
 						</div>
 					</div>
 					{/* Right: Banner Image */}
-					<div className="flex-1 flex justify-center md:justify-end w-full mt-8 md:mt-0">
+					<div className="w-full md:flex-1 flex justify-center md:justify-end">
 						<img
 							src={Banner}
 							alt="Banner"
-							className="w-full max-w-[500px] h-[180px] md:h-[360px] object-contain rounded-xl"
+							className="w-4/5 max-w-[320px] md:max-w-[500px] h-[140px] md:h-[360px] object-contain rounded-xl"
 							style={{ background: "rgba(255,255,255,0.1)" }}
 						/>
 					</div>
 				</div>
 			</div>
-
-			{/* Search Bar */}
-			<div className="w-screen flex justify-center -mt-8 md:-mt-12 z-10">
-				<form className="w-11/12 max-w-2xl">
+			<div className="w-full flex justify-center -mt-8 md:-mt-12 z-10">
+				<form className="w-full max-w-full md:max-w-2xl px-2">
 					<div className="flex items-center bg-white rounded-2xl border border-gray-200 shadow transition focus-within:shadow-lg focus-within:ring-2 focus-within:ring-primary px-2 py-2">
 						<input
 							type="text"
 							placeholder="Search products, categories, or content..."
-							className="flex-grow px-6 py-3 rounded-2xl outline-none bg-transparent text-sm md:text-base transition"
+							className="flex-grow min-w-0 px-4 py-3 rounded-2xl outline-none bg-transparent text-sm md:text-base transition"
 						/>
 						<button
 							type="submit"
-							className="p-3 text-primary bg-accent hover:bg-primary-light/10 rounded-2xl transition"
+							className="flex-shrink-0 p-3 text-primary bg-accent hover:bg-primary-light/10 rounded-2xl transition"
 							aria-label="Search"
 						>
 							{/* Magnifying glass SVG */}
@@ -141,7 +140,7 @@ export default function Home() {
 			</div>
 
 			{/* Popular Categories */}
-			<div className="w-full max-w-4xl mt-10 px-2 sm:px-6">
+			<div className="w-full max-w-full md:max-w-4xl mt-10 px-2 sm:px-6">
 				<h2 className="text-lg md:text-2xl font-bold mb-5 text-secondary text-center">
 					Popular Categories
 				</h2>
@@ -165,7 +164,7 @@ export default function Home() {
 			</div>
 
 			{/* Card Banners - Horizontal Scrollable Style */}
-			<div className="w-full max-w-7xl mt-12 px-2 sm:px-8">
+			<div className="w-full max-w-full md:max-w-7xl mt-12 px-2 sm:px-8">
 				<div className="flex space-x-6 overflow-x-auto pb-4 hide-scrollbar">
 					{cardBanners.map((card, idx) => (
 						<div
@@ -197,14 +196,11 @@ export default function Home() {
 						</div>
 					))}
 				</div>
+				<style>{`
+                    .hide-scrollbar::-webkit-scrollbar { display: none; }
+                    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+                `}</style>
 			</div>
-
-			<style>
-				{`
-          .hide-scrollbar::-webkit-scrollbar { display: none; }
-          .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        `}
-			</style>
 		</div>
 	);
 }

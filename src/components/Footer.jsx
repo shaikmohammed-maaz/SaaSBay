@@ -21,7 +21,6 @@ const rightLinks = [
 const social = [
   { name: "Twitter", href: "https://twitter.com", icon: "fa-brands fa-twitter" },
   { name: "LinkedIn", href: "https://linkedin.com", icon: "fa-brands fa-linkedin" },
-  { name: "Facebook", href: "https://facebook.com", icon: "fa-brands fa-facebook" },
 ];
 
 export default function Footer() {
@@ -30,7 +29,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Left: Logo & Social */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-4">
               <img
                 src={Logo}
@@ -41,10 +40,10 @@ export default function Footer() {
                 SaaSBay
               </span>
             </div>
-            <p className="text-secondary text-sm mb-4 max-w-xs">
+            <p className="text-secondary text-sm mb-4 max-w-xs text-center md:text-left">
               Discover, compare, and choose the best SaaS solutions for your business.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center md:justify-start w-full">
               {social.map((item) => (
                 <a
                   key={item.name}
