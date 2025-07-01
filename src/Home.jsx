@@ -1,30 +1,36 @@
 import React from "react";
+import accountingIcon from "./assets/accounting.png";
+import supportIcon from "./assets/support.png";
+import codingIcon from "./assets/coding.png";
+import networkIcon from "./assets/network.png";
+import salesIcon from "./assets/sales.png";
+import Banner from "./assets/Banner_1.png"; 
 
 // Example category and card data
 const categories = [
 	{
 		name: "Accounting & Finance",
-		icon: "src/assets/accounting.png",
+		icon: accountingIcon,
 		href: "#",
 	},
 	{
 		name: "Customer Support",
-		icon: "src/assets/support.png",
+		icon: supportIcon,
 		href: "#",
 	},
 	{
 		name: "Development & Engineering",
-		icon: "src/assets/coding.png",
+		icon: codingIcon,
 		href: "#",
 	},
 	{
 		name: "HR & People Management",
-		icon: "src/assets/network.png",
+		icon: networkIcon,
 		href: "#",
 	},
 	{
 		name: "Sales & Marketing",
-		icon: "src/assets/sales.png",
+		icon: salesIcon,
 		href: "#",
 	},
 ];
@@ -71,14 +77,14 @@ export default function Home() {
 	return (
 		<div className="flex flex-col items-center w-full">
 			{/* Banner Area */}
-			<div className="w-full min-h-[420px] md:min-h-[520px] flex items-center justify-center bg-gradient-to-r from-[#e3f1fa] via-[#f5fafd] to-[#d0e7f7]">
+			<div className="w-screen min-h-[420px] md:min-h-[520px] flex items-center justify-center bg-gradient-to-r from-[#e3f1fa] via-[#f5fafd] to-[#d0e7f7]">
 				<div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 md:px-8">
 					{/* Left: Text and Button */}
 					<div className="flex-1 flex flex-col items-center md:items-start justify-center py-10 md:py-16">
-						<h1 className="text-2xl md:text-3xl font-bold text-primary mb-3 text-center md:text-left max-w-xl">
+						<h1 className="text-2xl md:text-5xl font-bold text-primary mb-3 text-center md:text-left max-w-xl">
 							Get All SaaS Application At One Stop
 						</h1>
-						<p className="text-secondary mb-6 max-w-lg text-center md:text-left text-xs md:text-sm">
+						<p className="text-secondary mb-6 max-w-lg text-center md:text-left text-xs md:text-lg">
 							Discover, compare, and access the best SaaS tools for your business
 							needs—all in one place.
 						</p>
@@ -91,9 +97,9 @@ export default function Home() {
 					{/* Right: Banner Image */}
 					<div className="flex-1 flex justify-center md:justify-end w-full mt-8 md:mt-0">
 						<img
-							src="src/assets/Banner_1.png"
+							src={Banner}
 							alt="Banner"
-							className="w-full max-w-[320px] h-[180px] md:h-[260px] object-contain rounded-xl"
+							className="w-full max-w-[500px] h-[180px] md:h-[360px] object-contain rounded-xl"
 							style={{ background: "rgba(255,255,255,0.1)" }}
 						/>
 					</div>
@@ -101,23 +107,23 @@ export default function Home() {
 			</div>
 
 			{/* Search Bar */}
-			<div className="w-full flex justify-center -mt-8 md:-mt-12 z-10">
-				<form className="w-11/12 max-w-lg">
-					<div className="flex items-center bg-white rounded-xl border border-gray-200 shadow transition focus-within:shadow-lg focus-within:ring-2 focus-within:ring-primary">
+			<div className="w-screen flex justify-center -mt-8 md:-mt-12 z-10">
+				<form className="w-11/12 max-w-2xl">
+					<div className="flex items-center bg-white rounded-2xl border border-gray-200 shadow transition focus-within:shadow-lg focus-within:ring-2 focus-within:ring-primary px-2 py-2">
 						<input
 							type="text"
 							placeholder="Search products, categories, or content..."
-							className="flex-grow px-4 py-2 rounded-xl outline-none bg-transparent text-xs md:text-sm transition"
+							className="flex-grow px-6 py-3 rounded-2xl outline-none bg-transparent text-sm md:text-base transition"
 						/>
 						<button
 							type="submit"
-							className="p-2 text-primary bg-accent hover:bg-primary-light/10 rounded-xl transition"
+							className="p-3 text-primary bg-accent hover:bg-primary-light/10 rounded-2xl transition"
 							aria-label="Search"
 						>
 							{/* Magnifying glass SVG */}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								className="h-4 w-4"
+								className="h-5 w-5"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
@@ -135,22 +141,22 @@ export default function Home() {
 			</div>
 
 			{/* Popular Categories */}
-			<div className="w-full max-w-3xl mt-8 px-4">
-				<h2 className="text-base md:text-lg font-bold mb-3 text-secondary text-center">
+			<div className="w-full max-w-4xl mt-10 px-2 sm:px-6">
+				<h2 className="text-lg md:text-2xl font-bold mb-5 text-secondary text-center">
 					Popular Categories
 				</h2>
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
+				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
 					{categories.map((cat) => (
 						<div
 							key={cat.name}
-							className="flex flex-col items-center justify-center bg-background rounded-xl shadow hover:shadow-lg transition cursor-pointer border border-gray-100 p-3 w-full max-w-[110px] group"
+							className="flex flex-col items-center justify-center bg-background rounded-2xl shadow hover:shadow-lg transition cursor-pointer border border-gray-100 p-5 w-full max-w-[130px] group"
 						>
 							<img
 								src={cat.icon}
 								alt={cat.name}
-								className="w-8 h-8 mb-1 object-contain transition-transform group-hover:scale-110"
+								className="w-12 h-12 mb-2 object-contain transition-transform group-hover:scale-110"
 							/>
-							<span className="text-[10px] font-semibold text-secondary text-center mb-1">
+							<span className="text-xs md:text-sm font-semibold text-secondary text-center mb-1">
 								{cat.name}
 							</span>
 						</div>
@@ -159,34 +165,34 @@ export default function Home() {
 			</div>
 
 			{/* Card Banners - Horizontal Scrollable Style */}
-			<div className="w-full max-w-4xl mt-8 px-2">
-				<div className="flex space-x-4 overflow-x-auto pb-3 hide-scrollbar">
+			<div className="w-full max-w-7xl mt-12 px-2 sm:px-8">
+				<div className="flex space-x-6 overflow-x-auto pb-4 hide-scrollbar">
 					{cardBanners.map((card, idx) => (
 						<div
 							key={idx}
-							className="min-w-[240px] max-w-xs flex-shrink-0 rounded-2xl flex flex-col justify-between shadow-lg bg-gradient-to-br from-[#e3f1fa] to-[#7ec6f6] relative"
+							className="min-w-[280px] max-w-sm flex-shrink-0 rounded-3xl flex flex-col justify-between shadow-xl bg-gradient-to-br from-[#e3f1fa] to-[#7ec6f6] relative"
 						>
-							<div className="p-4 flex flex-col h-full">
-								<h3 className="font-bold text-base text-primary mb-1">
+							<div className="p-6 flex flex-col h-full">
+								<h3 className="font-bold text-lg text-primary mb-2">
 									{card.title}
 								</h3>
-								<p className="text-main text-xs mb-2">{card.subtitle}</p>
-								<ul className="mb-2 list-disc list-inside text-[11px] text-secondary space-y-1">
+								<p className="text-main text-sm mb-3">{card.subtitle}</p>
+								<ul className="mb-3 list-disc list-inside text-[13px] text-secondary space-y-1">
 									{card.features.map((feature, i) => (
 										<li key={i}>{feature}</li>
 									))}
 								</ul>
-								<div className="font-bold text-primary mb-2 text-sm">
+								<div className="font-bold text-primary mb-3 text-base">
 									{card.price}
 								</div>
-								<button className="bg-[#ff5c1a] text-white px-3 py-1 rounded-lg font-bold shadow hover:bg-[#ff7c3a] transition w-max text-xs">
+								<button className="bg-[#ff5c1a] text-white px-4 py-2 rounded-xl font-bold shadow hover:bg-[#ff7c3a] transition w-max text-sm">
 									{card.cta}
 								</button>
 							</div>
 							<img
 								src={card.img}
 								alt={card.title}
-								className="absolute right-2 bottom-2 w-16 h-16 object-contain rounded-xl shadow-md"
+								className="absolute right-4 bottom-4 w-20 h-20 object-contain rounded-xl shadow-md"
 							/>
 						</div>
 					))}

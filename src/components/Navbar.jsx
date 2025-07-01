@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Logo from "/src/assets/SaasLogo.png"; // Adjust the path as needed
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -32,11 +33,11 @@ export default function Navbar() {
           {/* Logo & Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="src/assets/SaasLogo.png"
+              src={Logo}
               alt="SaaSBay Logo"
               className="h-14 w-auto"
             />
-            <span className="text-primary font-bold text-lg tracking-tight">
+            <span className="text-primary font-bold text-3xl tracking-tight">
               SaaSBay
             </span>
           </div>
@@ -46,7 +47,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-secondary hover:text-primary font-medium transition-colors"
+                className="text-secondary hover:text-primary font-medium transition-colors text-lg"
               >
                 {link.name}
               </a>

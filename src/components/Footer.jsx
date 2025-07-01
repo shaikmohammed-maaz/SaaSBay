@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../assets/SaasLogo.png"; // Adjust the path as needed
 
 const quickLinks = [
   { name: "About", href: "#" },
@@ -32,7 +33,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="src/assets/SaasLogo.png"
+                src={Logo}
                 alt="SaaSBay Logo"
                 className="h-10 w-auto"
               />
