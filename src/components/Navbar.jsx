@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "/src/assets/SaasLogo.png"; // Adjust the path as needed
+import Logo from "/src/assets/SaasLogo.png";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "Categories", href: "#" },
-  { name: "List Your Products", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  // Add more routes as you implement them
+  { name: "Blog", href: "/blog" },
+  // { name: "Categories", href: "/categories" },
+  { name: "List Your Products", href: "/list-your-products" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false); // Close menu on route change
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsTransparent(window.scrollY < 100); // Adjust 100 as needed for your banner height
+      setIsTransparent(window.scrollY < 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -32,11 +39,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <img
-              src={Logo}
-              alt="SaaSBay Logo"
-              className="h-12 w-auto sm:h-14"
-            />
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="SaaSBay Logo"
+                className="h-12 w-auto sm:h-14"
+              />
+            </Link>
             <span className="text-primary font-bold text-2xl sm:text-3xl tracking-tight">
               SaaSBay
             </span>
@@ -44,13 +53,15 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-4 sm:space-x-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-secondary hover:text-primary font-medium transition-colors text-base sm:text-lg"
+                to={link.href}
+                className={`text-secondary hover:text-primary font-medium transition-colors text-base sm:text-lg ${
+                  location.pathname === link.href ? "text-primary font-bold" : ""
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
           {/* Mobile Hamburger */}
@@ -74,14 +85,16 @@ export default function Navbar() {
         <div className="md:hidden bg-accent shadow-lg">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="block text-secondary hover:text-primary font-medium py-2 transition-colors"
+                to={link.href}
+                className={`block text-secondary hover:text-primary font-medium py-2 transition-colors ${
+                  location.pathname === link.href ? "text-primary font-bold" : ""
+                }`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
