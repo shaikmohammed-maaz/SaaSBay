@@ -101,7 +101,7 @@ export default function Home() {
 
 	// Banner Area
 	return (
-		<div className="flex flex-col items-center w-full overflow-x-hidden relative">
+		<div className="flex flex-col items-center w-full overflow-x-hidden relative" >
 			{/* Decorative floating SaaS icons (background parallax) */}
 			<motion.img
 				src={codingIcon}

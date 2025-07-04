@@ -167,7 +167,7 @@ function TestimonialCarousel() {
 
 export default function About() {
   return (
-    <div className="about-bg min-h-screen w-full overflow-x-hidden">
+    <div className="about-bg min-h-screen w-full overflow-x-hidden" >
       {/* Hero / Intro */}
       <section className="w-full flex flex-col items-center justify-center min-h-[60vh] md:min-h-[80vh] py-12 px-4 md:px-0 relative text-center mt-10 md:mt-20">
         <FaCogs className="text-primary absolute right-8 top-24 text-3xl md:text-5xl opacity-20 animate-float z-10" />
